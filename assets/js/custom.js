@@ -12,7 +12,7 @@ window.optimizelyTemplateTool = {
             var optly = new OptimizelyAPI({
                 auth_mode: app_config.api_key ? "api_key" : "oauth",
                 api_key: app_config.api_key,
-                client_id: 2845500185
+                client_id: 6705913417
             });
         }
 
@@ -104,7 +104,7 @@ window.optimizelyTemplateTool = {
 
             e.preventDefault();
 
-            // TODO: Clean up spaghetti code 
+            // TODO: Clean up spaghetti code
 
             function createExperimentDefinition() {
 
@@ -208,7 +208,7 @@ window.optimizelyTemplateTool = {
                     }
                 });
 
-                // primary goal is first defined goal in the list 
+                // primary goal is first defined goal in the list
                 var primary_goal_event_name = experiment_definition.goals[0].event;
                 var goal_ids = [];
                 var primary_goal_id = "";
@@ -241,12 +241,12 @@ window.optimizelyTemplateTool = {
                             update_experimentids = {
                                 "experiment_ids": goal.experiment_ids
                             };
-                        
+
                             optly.put("goals/" + goal.id, update_experimentids, function(goal) {
                                 // check if this is the primary goal
                                 if (goal.event == primary_goal_event_name) {
-                                    primary_goal_id = goal.id;    
-                                }  
+                                    primary_goal_id = goal.id;
+                                }
                             })
                         });
                     }
