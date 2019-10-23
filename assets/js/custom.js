@@ -199,14 +199,7 @@ window.optimizelyTemplateTool = {
             createPages(final_config.articlePage)
             .then(function(page){
                 pageId = page.id;
-
-                //for p7. If split config is present, split headline at doublespace
-                if (final_config.hasOwnProperty("p7") && final_config.p7){
-                    console.log("special config found.");
-                    var str = $("#experiment-level input[name=\"Article URL\"]").val().split('prosieben.de')[1];
-                    final_config.clickEvent.config.selector = "a[href~='" + str + "']";
-                }
-
+                
                 return createEvents(final_config.clickEvent, page);
             })
             //Create Experiment
